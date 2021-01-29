@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Checkbook Web App">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="David Coppola">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Web Checkbook
+        </title>
+    </head>
+    <body>
+        <h2>Transaction Creation</h2>
+        <p>Use the form below to add your transaction!</p>
+        <form action="transaction_confirmation/" method="post">{% csrf_token %}
+            <select name="type">
+                <option value="deposit">Deposit</option>
+                <option value="withdrawal">Withdrawal</option>
+            </select>
+            <label>Amount:</label>
+            <input type="number" min="0" step="0.01" name="amount" placeholder="123.45" required><br><br>
+            <label>Memo</label>
+            <input name="memo" type="text", value=" -- " required>            
+            <select name="category">
+            {% for v in categories %}
+                <option value="{{v.id}}">{{ v }}</option>
+            {% endfor %}
+            </select>
+            <label>Not clear?</label>
+            <input type="checkbox" name="not_clear">
+            <input type="submit" value="post"><br><br>
+        </form>
+        <a href="http://127.0.0.1:8000/{{ account.id }}/">Cancel</a>
+    </body> 
+</html>

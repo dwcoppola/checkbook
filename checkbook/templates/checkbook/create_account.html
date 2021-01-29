@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Checkbook Web App">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="David Coppola">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Web Checkbook
+        </title>
+    </head>
+    <body>
+        <h2>Account Creation</h2>
+        <p>Use the form below to add your account!</p>
+        <form action="/account_confirmation/" method="post">{% csrf_token %}
+            <input type="text" name="name" placeholder="Name of Your Account" required><br><br>
+            <input type="number" min="0" step="0.01" name="balance" placeholder="123.45" required><br><br>
+            <input type="submit" value="post"><br><br>
+        </form>
+        <a href="/">Cancel</a>
+    </body> 
+</html>

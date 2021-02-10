@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta name="description" content="Checkbook Web App">
-        <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="author" content="David Coppola">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
@@ -12,7 +11,7 @@
     <body>
         <h2>Accounts</h2>
         {% for account in account_list %}
-            <a href="{{ account.id }}/"><li>{{ account }}</li></a>
+            <a href="account-{{ account.id }}/"><li>{{ account }}</li></a>
         {% endfor %}
         <p style="margin-bottom: 0px;">Don't see your account in the list above?</p>
         <p style="margin-top: 0px;">Click the button below to add an account.</p>
